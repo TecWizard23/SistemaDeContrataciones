@@ -93,7 +93,7 @@
                 <label class="block text-xs font-bold text-slate-600 mb-1">Buscar Convocatoria</label>
                 <div class="relative">
                     <input type="text" name="search" value="{{ request('search') }}" placeholder="Título, área, ubicación..." 
-                           class="w-full pl-9 pr-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#00a8cc] focus:bg-white transition-all font-medium">
+                           class="w-full pl-9 pr-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all font-medium">
                     <svg class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                     </svg>
@@ -102,7 +102,7 @@
 
             <div class="sm:col-span-3">
                 <label class="block text-xs font-bold text-slate-600 mb-1">Área / Departamento</label>
-                <select name="department" class="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#00a8cc] focus:bg-white transition-all font-semibold">
+                <select name="department" class="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all font-medium">
                     <option value="">Todas las áreas</option>
                     @foreach($departments as $dept)
                         <option value="{{ $dept }}" {{ request('department') == $dept ? 'selected' : '' }}>{{ $dept }}</option>
@@ -112,7 +112,7 @@
 
             <div class="sm:col-span-2">
                 <label class="block text-xs font-bold text-slate-600 mb-1">Estado</label>
-                <select name="status" class="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#00a8cc] focus:bg-white transition-all font-semibold">
+                <select name="status" class="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all font-medium">
                     <option value="">Todos</option>
                     <option value="OPEN" {{ request('status') === 'OPEN' ? 'selected' : '' }}>Abierta</option>
                     <option value="IN_REVIEW" {{ request('status') === 'IN_REVIEW' ? 'selected' : '' }}>En Evaluación</option>
@@ -121,7 +121,7 @@
             </div>
 
             <div class="sm:col-span-2 flex items-center gap-2">
-                <button type="submit" class="flex-grow py-2 bg-[#00a8cc] hover:bg-[#007b99] text-white font-bold rounded-xl text-xs shadow-xs transition-all cursor-pointer active:scale-95">
+                <button type="submit" class="flex-grow py-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-xl text-xs shadow-xs transition-all cursor-pointer">
                     Filtrar
                 </button>
                 @if(request()->hasAny(['search', 'department', 'status']))
@@ -193,7 +193,7 @@
 
                             <td class="py-4 px-6 text-center">
                                 <a href="{{ route('candidates.index') }}?vacancy_id={{ $vac->id }}" 
-                                   class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-extrabold {{ $vac->candidates_count > 0 ? 'bg-sky-100 text-[#00a8cc] hover:bg-sky-200' : 'bg-slate-100 text-slate-400' }} transition-colors">
+                                   class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold {{ $vac->candidates_count > 0 ? 'bg-indigo-50 text-indigo-700 hover:bg-indigo-100' : 'bg-slate-100 text-slate-400' }} transition-colors">
                                     <span>{{ $vac->candidates_count ?? 0 }}</span>
                                     <span class="text-[10px] font-semibold">aspirantes</span>
                                 </a>
@@ -256,7 +256,7 @@
 
                                     <!-- Edit Link -->
                                     <a href="{{ route('vacancies.edit', $vac) }}" 
-                                       class="p-1.5 text-slate-400 hover:text-[#00a8cc] hover:bg-sky-50 rounded-lg transition-colors cursor-pointer" title="Editar">
+                                       class="p-1.5 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors cursor-pointer" title="Editar">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
                                         </svg>

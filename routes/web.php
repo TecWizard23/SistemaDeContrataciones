@@ -28,15 +28,19 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [AuthController::class, 'register']);
 });
 
-// Authenticated shared routes
-Route::middleware('auth')->group(function () {
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-    Route::get('/', function () {
+// Root route: Smart redirect for both guest and authenticated users
+Route::get('/', function () {
+    if (Auth::check()) {
         return Auth::user()->isHR()
             ? redirect()->route('dashboard.index')
             : redirect()->route('portal.index');
-    });
+    }
+    return redirect()->route('public.vacancies.index');
+});
+
+// Authenticated shared routes
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
 // HR Restricted Routes

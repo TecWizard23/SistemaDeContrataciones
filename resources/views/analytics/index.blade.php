@@ -41,7 +41,7 @@
             <div class="flex items-center gap-2">
                 <label for="position" class="text-xs font-bold text-slate-500">Puesto / Vacante:</label>
                 <select name="position" id="position" onchange="this.form.submit()" 
-                        class="px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#00a8cc] focus:bg-white transition-all">
+                        class="px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:bg-white transition-all">
                     @foreach($positions as $pos)
                         <option value="{{ $pos }}" {{ $selectedPosition === $pos ? 'selected' : '' }}>
                             {{ $pos }}
@@ -54,7 +54,7 @@
             <div class="flex items-center gap-2">
                 <label for="date_range" class="text-xs font-bold text-slate-500">Periodo:</label>
                 <select name="date_range" id="date_range" onchange="this.form.submit()" 
-                        class="px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#00a8cc] focus:bg-white transition-all">
+                        class="px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:bg-white transition-all">
                     <option value="Últimos 30 días" {{ $selectedDateRange === 'Últimos 30 días' ? 'selected' : '' }}>Últimos 30 días</option>
                     <option value="Últimos 90 días" {{ $selectedDateRange === 'Últimos 90 días' ? 'selected' : '' }}>Últimos 90 días</option>
                     <option value="Últimos 365 días" {{ $selectedDateRange === 'Últimos 365 días' ? 'selected' : '' }}>Últimos 365 días</option>
@@ -64,7 +64,7 @@
         </form>
 
         <div class="text-xs font-semibold text-slate-400">
-            Filtro activo: <span class="text-[#00a8cc] font-bold">{{ $selectedPosition }}</span> &bull; {{ $selectedDateRange }}
+            Filtro activo: <span class="text-indigo-600 font-bold">{{ $selectedPosition }}</span> &bull; {{ $selectedDateRange }}
         </div>
     </div>
 
@@ -139,7 +139,7 @@
                     <h2 class="text-base font-bold text-slate-900">Radar Multiaxial de Competencias</h2>
                     <p class="text-xs text-slate-400">Comparación de las 8 dimensiones evaluadas vs. Perfil Ideal</p>
                 </div>
-                <span class="text-xs font-bold px-2.5 py-1 bg-sky-50 text-[#00a8cc] rounded-lg border border-sky-200">
+                <span class="text-xs font-bold px-2.5 py-1 bg-indigo-50 text-indigo-700 rounded-lg border border-indigo-200">
                     8 Ejes FMK
                 </span>
             </div>
@@ -177,7 +177,7 @@
             </div>
             <div class="flex items-center gap-4 text-xs font-semibold">
                 <div class="flex items-center gap-1.5">
-                    <span class="w-3 h-3 rounded-full bg-[#00a8cc]"></span>
+                    <span class="w-3 h-3 rounded-full bg-indigo-600"></span>
                     <span class="text-slate-600">Postulaciones</span>
                 </div>
                 <div class="flex items-center gap-1.5">
@@ -209,10 +209,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     label: 'Perfil Promedio Postulantes',
                     data: @json($candidateRadarScores),
-                    borderColor: '#00a8cc',
-                    backgroundColor: 'rgba(0, 168, 204, 0.2)',
+                    borderColor: '#4f46e5',
+                    backgroundColor: 'rgba(79, 70, 229, 0.2)',
                     borderWidth: 2.5,
-                    pointBackgroundColor: '#00a8cc',
+                    pointBackgroundColor: '#4f46e5',
                     pointRadius: 4,
                 },
                 {
@@ -297,8 +297,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     label: 'Postulaciones Totales',
                     data: @json($timelineData),
-                    borderColor: '#00a8cc',
-                    backgroundColor: 'rgba(0, 168, 204, 0.1)',
+                    borderColor: '#4f46e5',
+                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
                     tension: 0.35,
                     borderWidth: 3,
                     fill: true,

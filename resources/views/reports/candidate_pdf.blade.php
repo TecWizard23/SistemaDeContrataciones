@@ -32,7 +32,7 @@
         .brand-title {
             font-size: 15px;
             font-weight: bold;
-            color: #007b99;
+            color: #0f172a;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin: 0;
@@ -59,7 +59,7 @@
         .accent-strip {
             width: 100%;
             height: 3px;
-            background-color: #00a8cc;
+            background-color: #4f46e5;
             margin-bottom: 14px;
         }
 
@@ -84,7 +84,7 @@
 
         .doc-subtitle {
             font-size: 9.5px;
-            color: #007b99;
+            color: #4f46e5;
             font-weight: 600;
             margin-top: 2px;
         }
@@ -93,10 +93,10 @@
         .section-header {
             font-size: 10px;
             font-weight: bold;
-            color: #007b99;
+            color: #0f172a;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            border-bottom: 1.5px solid #00a8cc;
+            border-bottom: 1.5px solid #4f46e5;
             padding-bottom: 3px;
             margin-top: 10px;
             margin-bottom: 6px;
@@ -197,13 +197,13 @@
         }
 
         .data-table th {
-            background-color: #007b99;
+            background-color: #0f172a;
             color: #ffffff;
             font-size: 9px;
             font-weight: bold;
             text-align: left;
             padding: 5px 6px;
-            border: 1px solid #007b99;
+            border: 1px solid #0f172a;
             text-transform: uppercase;
         }
 
@@ -236,10 +236,10 @@
         }
 
         .narrative-box.blue {
-            background-color: #f0f9ff;
-            border: 1px solid #bae6fd;
-            border-left: 4px solid #00a8cc;
-            color: #0369a1;
+            background-color: #eef2ff;
+            border: 1px solid #c7d2fe;
+            border-left: 4px solid #4f46e5;
+            color: #312e81;
         }
 
         /* Observations and Signatures Section */
@@ -341,7 +341,7 @@
             <td class="info-label">Nombre Completo:</td>
             <td class="info-value" style="font-weight: bold;">{{ $candidate->full_name }}</td>
             <td class="info-label">Cargo Postulado:</td>
-            <td class="info-value font-bold" style="color: #007b99;">{{ $candidate->applied_position }}</td>
+            <td class="info-value font-bold" style="color: #4f46e5;">{{ $candidate->applied_position }}</td>
         </tr>
         <tr>
             <td class="info-label">Correo Electrónico:</td>
@@ -479,7 +479,7 @@
                     <td class="text-center font-bold" style="font-size: 13px;">{{ $cognitiveData['totalQuestions'] }}</td>
                     <td class="text-center font-bold" style="font-size: 13px; color: #059669;">{{ $cognitiveData['correctAnswers'] }}</td>
                     <td class="text-center font-bold" style="font-size: 13px; color: #dc2626;">{{ $cognitiveData['incorrectAnswers'] }}</td>
-                    <td class="text-center font-bold" style="font-size: 12px; color: #007b99; text-transform: uppercase;">
+                    <td class="text-center font-bold" style="font-size: 12px; color: #4f46e5; text-transform: uppercase;">
                         {{ $cognitiveData['qualitativeLevel'] }}
                     </td>
                 </tr>

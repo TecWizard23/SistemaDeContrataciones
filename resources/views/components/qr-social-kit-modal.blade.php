@@ -34,18 +34,18 @@
              class="relative transform overflow-hidden rounded-3xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-3xl border border-slate-200">
 
             <!-- Modal Header -->
-            <div class="bg-gradient-to-r from-[#059669] via-[#00a8cc] to-[#2563eb] px-6 py-5 text-white flex items-center justify-between">
+            <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-950 px-6 py-5 text-white flex items-center justify-between">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-xs flex items-center justify-center border border-white/30 text-white">
+                    <div class="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-xs flex items-center justify-center border border-white/20 text-white">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
                         </svg>
                     </div>
                     <div>
-                        <span class="text-[10px] font-extrabold px-2.5 py-0.5 bg-white/20 rounded-full border border-white/30 uppercase tracking-wider">
+                        <span class="text-[10px] font-extrabold px-2.5 py-0.5 bg-white/15 rounded-full border border-white/25 uppercase tracking-wider text-indigo-200">
                             Kit Reclutamiento & Difusión
                         </span>
-                        <h3 class="text-lg font-extrabold tracking-tight mt-0.5" id="modal-title">
+                        <h3 class="text-lg font-extrabold tracking-tight mt-0.5 text-white" id="modal-title">
                             Generador de Código QR & Afiches de Redes Sociales
                         </h3>
                     </div>
@@ -69,16 +69,16 @@
                             <span x-text="vacancy.department"></span>
                             <span>•</span>
                             <span x-text="vacancy.location"></span>
-                            <span x-show="vacancy.salary">• <strong class="text-[#059669]" x-text="vacancy.salary"></strong></span>
+                            <span x-show="vacancy.salary">• <strong class="text-emerald-700" x-text="vacancy.salary"></strong></span>
                         </div>
                     </div>
 
                     <!-- Color Selector -->
                     <div class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-semibold">
                         <span class="text-slate-500 text-[11px] mr-1">Color QR:</span>
-                        <button type="button" @click="setQrColor('#059669')" :class="qrColor === '#059669' ? 'ring-2 ring-offset-1 ring-[#059669]' : ''" class="w-5 h-5 rounded-full bg-[#059669] cursor-pointer" title="Verde FMK"></button>
-                        <button type="button" @click="setQrColor('#00a8cc')" :class="qrColor === '#00a8cc' ? 'ring-2 ring-offset-1 ring-[#00a8cc]' : ''" class="w-5 h-5 rounded-full bg-[#00a8cc] cursor-pointer" title="Azul Turquesa"></button>
-                        <button type="button" @click="setQrColor('#0f172a')" :class="qrColor === '#0f172a' ? 'ring-2 ring-offset-1 ring-[#0f172a]' : ''" class="w-5 h-5 rounded-full bg-[#0f172a] cursor-pointer" title="Negro Ébano"></button>
+                        <button type="button" @click="setQrColor('#0f172a')" :class="qrColor === '#0f172a' ? 'ring-2 ring-offset-1 ring-slate-900' : ''" class="w-5 h-5 rounded-full bg-slate-900 cursor-pointer" title="Negro Ébano"></button>
+                        <button type="button" @click="setQrColor('#4f46e5')" :class="qrColor === '#4f46e5' ? 'ring-2 ring-offset-1 ring-indigo-600' : ''" class="w-5 h-5 rounded-full bg-indigo-600 cursor-pointer" title="Azul Índigo"></button>
+                        <button type="button" @click="setQrColor('#059669')" :class="qrColor === '#059669' ? 'ring-2 ring-offset-1 ring-emerald-600' : ''" class="w-5 h-5 rounded-full bg-emerald-600 cursor-pointer" title="Verde Esmeralda"></button>
                     </div>
                 </div>
 
@@ -86,7 +86,7 @@
                 <div class="flex items-center gap-2 border-b border-slate-200 pb-3">
                     <button type="button" 
                             @click="switchTab('qr')" 
-                            :class="activeTab === 'qr' ? 'bg-[#00a8cc] text-white font-bold' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold'"
+                            :class="activeTab === 'qr' ? 'bg-slate-900 text-white font-bold' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold'"
                             class="px-4 py-2 rounded-xl text-xs transition-all flex items-center gap-2 cursor-pointer">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
@@ -96,7 +96,7 @@
 
                     <button type="button" 
                             @click="switchTab('flyer')" 
-                            :class="activeTab === 'flyer' ? 'bg-[#059669] text-white font-bold' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold'"
+                            :class="activeTab === 'flyer' ? 'bg-indigo-600 text-white font-bold' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold'"
                             class="px-4 py-2 rounded-xl text-xs transition-all flex items-center gap-2 cursor-pointer">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
@@ -140,7 +140,7 @@
                         <div class="space-y-2.5">
                             <button type="button" 
                                     @click="downloadQR()" 
-                                    class="w-full py-3 px-4 bg-[#00a8cc] hover:bg-[#007b99] text-white font-extrabold rounded-xl text-xs shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98">
+                                    class="w-full py-3 px-4 bg-slate-900 hover:bg-slate-800 text-white font-extrabold rounded-xl text-xs shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                                 </svg>
@@ -149,7 +149,7 @@
 
                             <button type="button" 
                                     @click="downloadFlyer()" 
-                                    class="w-full py-3 px-4 bg-[#059669] hover:bg-[#047857] text-white font-extrabold rounded-xl text-xs shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98">
+                                    class="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold rounded-xl text-xs shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                 </svg>
@@ -269,7 +269,7 @@ function qrSocialKitModal() {
     return {
         isOpen: false,
         activeTab: 'qr',
-        qrColor: '#059669',
+        qrColor: '#0f172a',
         copied: false,
         vacancy: {
             id: '',

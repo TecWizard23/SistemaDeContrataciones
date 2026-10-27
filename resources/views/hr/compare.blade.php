@@ -5,23 +5,30 @@
 @section('content')
 <div x-data="comparisonApp({{ json_encode($comparisonData) }})" class="space-y-6">
 
-    <!-- Title Bar -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200">
-        <div class="flex items-center gap-3">
-            <h1 class="text-2xl font-bold text-slate-900 tracking-tight">Línea del tiempo & radar</h1>
-            <button type="button" class="w-6 h-6 rounded-full bg-slate-200 hover:bg-slate-300 text-slate-600 flex items-center justify-center text-xs font-bold transition-colors" title="Ver guía metodológica de evaluación psicométrica">
-                ?
-            </button>
+    <!-- Executive Hero Banner -->
+    <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-950 rounded-2xl p-6 text-white border border-slate-800 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="space-y-1">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-indigo-500/20 text-indigo-200 border border-indigo-400/30 uppercase tracking-wider">
+                    <svg class="w-3 h-3 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/>
+                    </svg>
+                    <span>Analítica Psicométrica</span>
+                </span>
+            </div>
+            <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-white">Comparador de Candidatos & Radar</h1>
+            <p class="text-xs text-slate-300 font-normal">Análisis multiaxial de competencias, adecuación al perfil y evolución temporal del talento evaluado.</p>
         </div>
 
         <div class="flex items-center gap-3">
             <!-- Export Button -->
             <a :href="exportUrl" 
-               class="inline-flex items-center gap-2 px-4 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 rounded-xl text-xs font-semibold shadow-xs transition-all cursor-pointer">
-                <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl text-xs font-semibold shadow-xs transition-all cursor-pointer">
+                <svg class="w-4 h-4 text-indigo-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
                 </svg>
-                <span>EXPORTAR</span>
+                <span>Exportar Informe</span>
             </a>
         </div>
     </div>
@@ -41,7 +48,7 @@
                 <template x-for="cat in categories" :key="cat">
                     <button @click="selectedCategory = cat; open = false;" class="w-full text-left px-4 py-2 hover:bg-slate-50 text-slate-700 flex items-center justify-between">
                         <span x-text="cat"></span>
-                        <svg x-show="selectedCategory === cat" class="w-4 h-4 text-kenjo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg x-show="selectedCategory === cat" class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
                         </svg>
                     </button>
@@ -62,7 +69,7 @@
                 <template x-for="rev in reviewers" :key="rev">
                     <button @click="selectedReviewer = rev; open = false;" class="w-full text-left px-4 py-2 hover:bg-slate-50 text-slate-700 flex items-center justify-between">
                         <span x-text="rev"></span>
-                        <svg x-show="selectedReviewer === rev" class="w-4 h-4 text-kenjo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg x-show="selectedReviewer === rev" class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
                         </svg>
                     </button>
@@ -85,7 +92,7 @@
                 <template x-for="range in dateRanges" :key="range">
                     <button @click="selectedDateRange = range; open = false;" class="w-full text-left px-4 py-2 hover:bg-slate-50 text-slate-700 flex items-center justify-between">
                         <span x-text="range"></span>
-                        <svg x-show="selectedDateRange === range" class="w-4 h-4 text-kenjo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg x-show="selectedDateRange === range" class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
                         </svg>
                     </button>
@@ -110,7 +117,7 @@
             <!-- Floating Candidates List -->
             <div x-show="open" @click.outside="open = false" x-cloak class="absolute left-0 mt-2 w-72 bg-white border border-slate-200 rounded-2xl shadow-2xl p-2 z-50 text-xs">
                 <div class="p-2 border-b border-slate-100">
-                    <input type="text" x-model="search" placeholder="Buscar por nombre o email..." class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-kenjo-500">
+                    <input type="text" x-model="search" placeholder="Buscar por nombre o email..." class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                 </div>
                 <div class="max-h-56 overflow-y-auto py-1 divide-y divide-slate-50">
                     <template x-for="cand in filteredAllCandidates(search)" :key="cand.id">
@@ -122,7 +129,7 @@
                                     <div class="text-[10px] text-slate-400" x-text="cand.position"></div>
                                 </div>
                             </div>
-                            <svg x-show="isSelectedCandidate(cand.id)" class="w-4 h-4 text-kenjo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg x-show="isSelectedCandidate(cand.id)" class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
                             </svg>
                         </button>
@@ -147,7 +154,7 @@
             <div x-show="open" @click.outside="open = false" x-cloak class="absolute right-0 mt-2 w-56 bg-white border border-slate-200 rounded-xl shadow-xl p-2 z-40 text-xs">
                 <button @click="selectedDepartment = 'All'; open = false; filterByDepartment();" class="w-full text-left px-3 py-1.5 hover:bg-slate-50 font-medium rounded-lg text-slate-700 flex items-center justify-between">
                     <span>Todos los Departamentos</span>
-                    <svg x-show="selectedDepartment === 'All'" class="w-4 h-4 text-kenjo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg x-show="selectedDepartment === 'All'" class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
                     </svg>
                 </button>
@@ -155,7 +162,7 @@
                 <template x-for="dept in rawData.departments" :key="dept">
                     <button @click="selectedDepartment = dept; open = false; filterByDepartment();" class="w-full text-left px-3 py-1.5 hover:bg-slate-50 rounded-lg text-slate-700 flex items-center justify-between">
                         <span x-text="dept"></span>
-                        <svg x-show="selectedDepartment === dept" class="w-4 h-4 text-kenjo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg x-show="selectedDepartment === dept" class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
                         </svg>
                     </button>
@@ -214,7 +221,7 @@
                     <p class="text-xs text-slate-400">Tendencia mensual de desempeño (Ene - Dic)</p>
                 </div>
                 <div class="flex items-center gap-2">
-                    <span class="inline-block w-2.5 h-2.5 rounded-full bg-kenjo-500"></span>
+                    <span class="inline-block w-2.5 h-2.5 rounded-full bg-indigo-600"></span>
                     <span class="text-xs text-slate-500 font-medium">Línea de tendencia</span>
                 </div>
             </div>
@@ -250,7 +257,7 @@
     <!-- Candidate Summary Cards Matrix -->
     <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs">
         <h3 class="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
-            <svg class="w-4 h-4 text-kenjo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
             </svg>
             Resumen de Evaluación Psicométrica y Ajuste de Perfil
@@ -271,7 +278,7 @@
                         </div>
                         <div class="text-right">
                             <span class="text-sm font-extrabold text-slate-900" x-text="`${cand.overall_score}%`"></span>
-                            <p class="text-[10px] font-semibold text-kenjo-600">Ajuste General</p>
+                            <p class="text-[10px] font-semibold text-indigo-600">Ajuste General</p>
                         </div>
                     </div>
 
