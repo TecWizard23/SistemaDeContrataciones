@@ -5,22 +5,22 @@
 @section('content')
 <div class="space-y-6">
 
-    <!-- Hero Banner Verde Esmeralda FMK -->
-    <div class="bg-gradient-to-r from-[#059669] to-[#10b981] rounded-3xl p-6 sm:p-8 text-white shadow-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+    <!-- Hero Banner Ejecutivo FMK -->
+    <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-slate-800/80 overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div class="space-y-2">
-            <span class="text-xs font-extrabold px-3 py-1 bg-white/20 rounded-full border border-white/30 uppercase tracking-wider">
-                Módulo RRHH - Munasim Kullakita
+            <span class="text-[10px] font-extrabold px-3 py-1 bg-white/10 rounded-full border border-white/20 uppercase tracking-wider backdrop-blur-xs text-indigo-200">
+                Módulo RRHH • Banco de Reactivos
             </span>
-            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Banco de Evaluaciones Psicométricas</h1>
-            <p class="text-xs sm:text-sm text-emerald-100 font-medium max-w-xl">
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">Banco de Evaluaciones Psicométricas</h1>
+            <p class="text-xs sm:text-sm text-slate-300 font-normal max-w-xl leading-relaxed">
                 Crea, administra y configura las pruebas de aptitud cognitiva, razonamiento lógico y perfiles conductuales DISC.
             </p>
         </div>
 
         <div>
             <a href="{{ route('evaluations-manage.create') }}" 
-               class="inline-flex items-center gap-2 px-5 py-3 bg-white text-[#059669] hover:bg-emerald-50 font-extrabold rounded-2xl text-xs shadow-md transition-all cursor-pointer">
-                <svg class="w-4 h-4 text-[#059669]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-slate-900 hover:bg-slate-100 font-extrabold rounded-xl text-xs shadow-md transition-all cursor-pointer">
+                <svg class="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
                 </svg>
                 <span>Nueva Evaluación</span>

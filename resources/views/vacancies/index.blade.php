@@ -5,14 +5,14 @@
 @section('content')
 <div x-data="{}" class="space-y-6">
 
-    <!-- Hero Banner FMK -->
-    <div class="bg-gradient-to-r from-[#00a8cc] via-[#059669] to-[#10b981] rounded-3xl p-6 sm:p-8 text-white shadow-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+    <!-- Hero Banner Ejecutivo: Convocatorias & Vacantes -->
+    <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-slate-800/80 overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div class="space-y-2">
-            <span class="text-[11px] font-extrabold px-3 py-1 bg-white/20 rounded-full border border-white/30 uppercase tracking-wider">
-                Módulo RRHH - Convocatorias
+            <span class="text-[10px] font-extrabold px-3 py-1 bg-white/10 rounded-full border border-white/20 uppercase tracking-wider backdrop-blur-xs text-indigo-200">
+                Módulo RRHH • Convocatorias Laborales
             </span>
-            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Gestión de Convocatorias y Vacantes</h1>
-            <p class="text-xs sm:text-sm text-emerald-100 font-medium max-w-xl leading-relaxed">
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">Gestión de Convocatorias y Vacantes</h1>
+            <p class="text-xs sm:text-sm text-slate-300 font-normal max-w-xl leading-relaxed">
                 Publica, administra y supervisa los requerimientos de talento humano para las diferentes áreas de la fundación.
             </p>
         </div>
@@ -27,16 +27,16 @@
                         contractType: 'Tiempo Completo / Consultor',
                         url: '{{ route('public.vacancies.index') }}'
                     })"
-                    class="inline-flex items-center gap-2 px-4 py-3 bg-white/10 hover:bg-white/20 text-white font-extrabold rounded-2xl text-xs border border-white/30 backdrop-blur-xs shadow-xs transition-all cursor-pointer">
+                    class="inline-flex items-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl text-xs border border-white/20 backdrop-blur-xs shadow-xs transition-all cursor-pointer">
                 <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
                 </svg>
-                <span>Kit QR General de Difusión</span>
+                <span>Kit QR de Difusión</span>
             </button>
 
             <a href="{{ route('vacancies.create') }}" 
-               class="inline-flex items-center gap-2 px-5 py-3 bg-white text-[#059669] hover:bg-emerald-50 font-extrabold rounded-2xl text-xs shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all duration-200 cursor-pointer">
-                <svg class="w-4 h-4 text-[#059669]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               class="inline-flex items-center gap-2 px-4 py-2.5 bg-white text-slate-900 hover:bg-slate-100 font-extrabold rounded-xl text-xs shadow-md transition-all cursor-pointer">
+                <svg class="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
                 </svg>
                 <span>Nueva Convocatoria</span>
@@ -134,15 +134,22 @@
     </div>
 
     <!-- Vacancies Table -->
-    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <div class="bg-[#2563eb] text-white px-6 py-4 flex items-center justify-between">
-            <h2 class="text-sm font-bold tracking-wide flex items-center gap-2">
-                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                </svg>
-                <span>Convocatorias Registradas</span>
-            </h2>
-            <span class="text-xs font-semibold px-3 py-1 bg-white/20 rounded-full border border-white/30">
+    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+        <div class="bg-white border-b border-slate-200/80 px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center">
+                    <svg class="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="text-sm font-bold text-slate-900 tracking-tight">
+                        Convocatorias Registradas en Sistema
+                    </h2>
+                    <p class="text-[11px] text-slate-400">Administración de puestos, plazas y estados</p>
+                </div>
+            </div>
+            <span class="text-xs font-semibold px-3 py-1 bg-slate-100 text-slate-700 rounded-full border border-slate-200/80">
                 Total: {{ $vacancies->total() }} registro(s)
             </span>
         </div>

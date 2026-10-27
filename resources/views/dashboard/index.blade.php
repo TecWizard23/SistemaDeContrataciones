@@ -5,8 +5,8 @@
 @section('content')
 <div class="space-y-6 pb-12">
 
-    <!-- Hero Banner de Bienvenida FMK (Variante Azul/Índigo) -->
-    <div class="relative bg-gradient-to-r from-[#5965db] via-[#4f46e5] to-[#4539a8] rounded-3xl p-6 sm:p-8 text-white shadow-xl overflow-hidden">
+    <!-- Hero Banner Ejecutivo FMK -->
+    <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-slate-800/80 overflow-hidden">
         <div class="absolute -right-10 -bottom-10 opacity-10 text-white select-none pointer-events-none">
             <svg class="w-56 h-56" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
@@ -16,20 +16,20 @@
         <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div class="space-y-2">
                 <div class="flex items-center gap-2.5">
-                    <span class="bg-white/20 backdrop-blur-md text-white text-[11px] font-extrabold px-3 py-1 rounded-full border border-white/30 uppercase tracking-wider">
-                        Sistema RRHH
+                    <span class="bg-white/10 backdrop-blur-md text-indigo-200 text-[10px] font-extrabold px-3 py-1 rounded-full border border-white/20 uppercase tracking-wider">
+                        Sistema RRHH & Talento
                     </span>
-                    <span class="text-xs text-indigo-100 font-semibold flex items-center gap-1.5">
+                    <span class="text-xs text-slate-400 font-semibold flex items-center gap-1.5">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        Selección & Evaluaciones Munasim Kullakita
+                        Selección Munasim Kullakita
                     </span>
                 </div>
 
-                <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
-                    Panel de Control de Reclutamiento
+                <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+                    Panel Principal de Reclutamiento
                 </h1>
-                <p class="text-xs sm:text-sm text-indigo-100 max-w-2xl font-medium leading-relaxed">
-                    Monitorea postulaciones en tiempo real, administra convocatorias laborales y supervisa resultados psicométricos con análisis de ajuste al puesto.
+                <p class="text-xs sm:text-sm text-slate-300 max-w-2xl font-normal leading-relaxed">
+                    Monitorea postulaciones en tiempo real, administra convocatorias laborales y supervisa resultados psicométricos con análisis de adecuación al puesto.
                 </p>
             </div>
 
@@ -52,8 +52,8 @@
                 </button>
 
                 <a href="{{ route('vacancies.create') }}" 
-                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-white text-[#4539a8] hover:bg-indigo-50 font-extrabold rounded-2xl text-xs shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer">
-                    <svg class="w-4 h-4 text-[#4539a8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-white text-slate-900 hover:bg-slate-100 font-extrabold rounded-xl text-xs shadow-md transition-all cursor-pointer">
+                    <svg class="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
                     </svg>
                     <span>Nueva Convocatoria</span>
@@ -78,59 +78,59 @@
         </div>
     </div>
 
-    <!-- Fila de 4 KPI Cards FMK -->
+    <!-- Fila de 4 KPI Cards Ejecutivas FMK -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         
-        <!-- Card 1: Azul Vibrante (#1d4ed8) -> Total Postulantes -->
-        <div class="bg-[#1d4ed8] text-white rounded-2xl p-5 shadow-md shadow-blue-500/10 flex items-center justify-between relative overflow-hidden group hover:scale-[1.02] transition-transform">
-            <div class="space-y-1 relative z-10">
-                <p class="text-xs font-semibold text-blue-100 uppercase tracking-wider">Candidatos Registrados</p>
-                <p class="text-3xl font-extrabold">{{ number_format($totalCandidatesCount) }}</p>
-                <p class="text-[11px] text-blue-200">En base de datos FMK</p>
+        <!-- Card 1: Total Postulantes -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs hover:shadow-xs hover:border-slate-300 transition-all flex items-center justify-between">
+            <div class="space-y-1">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Candidatos Registrados</p>
+                <p class="text-3xl font-extrabold text-slate-900 tracking-tight">{{ number_format($totalCandidatesCount) }}</p>
+                <p class="text-[11px] text-slate-400 font-medium">En base de datos FMK</p>
             </div>
-            <div class="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-xs flex items-center justify-center text-white">
+            <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-100">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                 </svg>
             </div>
         </div>
 
-        <!-- Card 2: Verde Esmeralda (#059669) -> Pruebas Completadas -->
-        <div class="bg-[#059669] text-white rounded-2xl p-5 shadow-md shadow-emerald-500/10 flex items-center justify-between relative overflow-hidden group hover:scale-[1.02] transition-transform">
-            <div class="space-y-1 relative z-10">
-                <p class="text-xs font-semibold text-emerald-100 uppercase tracking-wider">Pruebas Completadas</p>
-                <p class="text-3xl font-extrabold">{{ number_format($completedSessionsCount) }}</p>
-                <p class="text-[11px] text-emerald-200">Sesiones evaluadas</p>
+        <!-- Card 2: Pruebas Completadas -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs hover:shadow-xs hover:border-slate-300 transition-all flex items-center justify-between">
+            <div class="space-y-1">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Pruebas Completadas</p>
+                <p class="text-3xl font-extrabold text-slate-900 tracking-tight">{{ number_format($completedSessionsCount) }}</p>
+                <p class="text-[11px] text-emerald-600 font-semibold">Sesiones evaluadas</p>
             </div>
-            <div class="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-xs flex items-center justify-center text-white">
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
             </div>
         </div>
 
-        <!-- Card 3: Mostaza / Ámbar (#f59e0b) -> Promedio Fit -->
-        <div class="bg-[#f59e0b] text-white rounded-2xl p-5 shadow-md shadow-amber-500/10 flex items-center justify-between relative overflow-hidden group hover:scale-[1.02] transition-transform">
-            <div class="space-y-1 relative z-10">
-                <p class="text-xs font-semibold text-amber-100 uppercase tracking-wider">Promedio Fit General</p>
-                <p class="text-3xl font-extrabold">{{ $avgFitPercentage }}%</p>
-                <p class="text-[11px] text-amber-100">Adecuación al perfil</p>
+        <!-- Card 3: Promedio Fit -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs hover:shadow-xs hover:border-slate-300 transition-all flex items-center justify-between">
+            <div class="space-y-1">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Promedio Fit General</p>
+                <p class="text-3xl font-extrabold text-slate-900 tracking-tight">{{ $avgFitPercentage }}%</p>
+                <p class="text-[11px] text-amber-600 font-semibold">Adecuación al perfil</p>
             </div>
-            <div class="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-xs flex items-center justify-center text-white">
+            <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                 </svg>
             </div>
         </div>
 
-        <!-- Card 4: Celeste Turquesa (#06b6d4) -> Convocatorias Abiertas -->
-        <a href="{{ route('vacancies.index') }}" class="bg-[#06b6d4] text-white rounded-2xl p-5 shadow-md shadow-cyan-500/10 flex items-center justify-between relative overflow-hidden group hover:scale-[1.02] transition-transform cursor-pointer">
-            <div class="space-y-1 relative z-10">
-                <p class="text-xs font-semibold text-cyan-100 uppercase tracking-wider">Convocatorias Abiertas</p>
-                <p class="text-3xl font-extrabold">{{ $openVacanciesCount }}</p>
-                <p class="text-[11px] text-cyan-100">Procesos activos &rarr;</p>
+        <!-- Card 4: Convocatorias Abiertas -->
+        <a href="{{ route('vacancies.index') }}" class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs hover:shadow-xs hover:border-slate-300 transition-all flex items-center justify-between group cursor-pointer">
+            <div class="space-y-1">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Convocatorias Abiertas</p>
+                <p class="text-3xl font-extrabold text-slate-900 tracking-tight">{{ $openVacanciesCount }}</p>
+                <p class="text-[11px] text-indigo-600 font-semibold group-hover:underline">Procesos activos &rarr;</p>
             </div>
-            <div class="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-xs flex items-center justify-center text-white">
+            <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-100">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                 </svg>
@@ -280,17 +280,24 @@
         </form>
     </div>
 
-    <!-- Tabla con Estilo FMK (Cabecera Azul #2563eb) -->
-    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+    <!-- Tabla Oficial de Postulantes Registrados -->
+    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
         <!-- Table Header Bar -->
-        <div class="bg-[#2563eb] text-white px-6 py-4 flex items-center justify-between">
-            <h2 class="text-sm font-bold tracking-wide flex items-center gap-2">
-                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                </svg>
-                <span>Postulantes Registrados en Sistema FMK</span>
-            </h2>
-            <span class="text-xs font-semibold px-3 py-1 bg-white/20 rounded-full border border-white/30">
+        <div class="bg-white border-b border-slate-200/80 px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center">
+                    <svg class="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="text-sm font-bold text-slate-900 tracking-tight">
+                        Postulantes Registrados en Sistema FMK
+                    </h2>
+                    <p class="text-[11px] text-slate-400">Nómina activa y seguimiento de sesiones evaluadas</p>
+                </div>
+            </div>
+            <span class="text-xs font-semibold px-3 py-1 bg-slate-100 text-slate-700 rounded-full border border-slate-200/80">
                 Total: {{ $candidates->count() }} candidato(s)
             </span>
         </div>

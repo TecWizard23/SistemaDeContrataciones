@@ -145,24 +145,24 @@
                 @else
                     <!-- Candidate Role Sidebar Items -->
                     <a href="{{ route('portal.index') }}" 
-                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all {{ request()->routeIs('portal.index') ? 'bg-sky-50 text-[#00a8cc] font-bold border-r-4 border-[#00a8cc] shadow-2xs' : 'text-slate-600 hover:bg-sky-50/70 hover:text-[#00a8cc]' }}">
-                        <svg class="w-4 h-4 text-slate-400 {{ request()->routeIs('portal.index') ? 'text-[#00a8cc]' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all group {{ request()->routeIs('portal.index') ? 'bg-slate-900 text-white font-bold shadow-xs' : 'text-slate-600 hover:bg-slate-100/80 hover:text-slate-900' }}">
+                        <svg class="w-4 h-4 {{ request()->routeIs('portal.index') ? 'text-white' : 'text-slate-400 group-hover:text-slate-600' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
                         </svg>
                         <span>Mis Evaluaciones</span>
                     </a>
 
                     <a href="{{ route('portal.profile') }}" 
-                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all {{ request()->routeIs('portal.profile') ? 'bg-sky-50 text-[#00a8cc] font-bold border-r-4 border-[#00a8cc] shadow-2xs' : 'text-slate-600 hover:bg-sky-50/70 hover:text-[#00a8cc]' }}">
-                        <svg class="w-4 h-4 text-slate-400 {{ request()->routeIs('portal.profile') ? 'text-[#00a8cc]' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all group {{ request()->routeIs('portal.profile') ? 'bg-slate-900 text-white font-bold shadow-xs' : 'text-slate-600 hover:bg-slate-100/80 hover:text-slate-900' }}">
+                        <svg class="w-4 h-4 {{ request()->routeIs('portal.profile') ? 'text-white' : 'text-slate-400 group-hover:text-slate-600' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                         </svg>
                         <span>Mi Perfil Profesional</span>
                     </a>
 
                     <a href="{{ route('portal.my-results') }}" 
-                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all {{ request()->routeIs('portal.my-results') ? 'bg-sky-50 text-[#00a8cc] font-bold border-r-4 border-[#00a8cc] shadow-2xs' : 'text-slate-600 hover:bg-sky-50/70 hover:text-[#00a8cc]' }}">
-                        <svg class="w-4 h-4 text-slate-400 {{ request()->routeIs('portal.my-results') ? 'text-[#00a8cc]' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all group {{ request()->routeIs('portal.my-results') ? 'bg-slate-900 text-white font-bold shadow-xs' : 'text-slate-600 hover:bg-slate-100/80 hover:text-slate-900' }}">
+                        <svg class="w-4 h-4 {{ request()->routeIs('portal.my-results') ? 'text-white' : 'text-slate-400 group-hover:text-slate-600' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                         </svg>
                         <span>Mis Resultados</span>
