@@ -190,8 +190,8 @@
             </div>
 
             <div class="pt-2 border-t border-slate-100">
-                <a href="{{ route('analytics.index') }}" class="text-xs font-bold text-[#00a8cc] hover:underline flex items-center justify-between">
-                    <span>Ver estadísticas completas</span>
+                <a href="{{ route('candidates.index') }}" class="text-xs font-bold text-[#00a8cc] hover:underline flex items-center justify-between">
+                    <span>Ver nómina de contrataciones</span>
                     <span>&rarr;</span>
                 </a>
             </div>
