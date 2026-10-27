@@ -8,6 +8,7 @@ services:
     working_dir: /var/www/html
     volumes:
       - .:/var/www/html
+      - ./docker/php/opcache.ini:/usr/local/etc/php/conf.d/custom-opcache.ini
     networks:
       - rrhh_network
 

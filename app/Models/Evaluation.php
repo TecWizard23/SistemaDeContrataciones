@@ -31,4 +31,9 @@ class Evaluation extends Model
     {
         return $this->hasMany(CandidateSession::class);
     }
+
+    public function candidateSessions(): HasMany
+    {
+        return $this->hasMany(CandidateSession::class);
+    }
 }

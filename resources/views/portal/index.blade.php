@@ -7,8 +7,10 @@
 
     <!-- Candidate Profile Hero Banner (FMK Azul/Índigo) -->
     <div class="bg-gradient-to-r from-[#5965db] to-[#4539a8] rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
-        <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-bold select-none pointer-events-none">
-            ☀️
+        <div class="absolute -right-10 -bottom-10 opacity-10 text-white select-none pointer-events-none">
+            <svg class="w-48 h-48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
         </div>
 
         <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
@@ -38,8 +40,10 @@
     <div class="space-y-4">
         <div class="flex items-center justify-between">
             <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <span class="text-xl">📋</span>
-                Evaluaciones Asignadas
+                <svg class="w-5 h-5 text-[#00a8cc]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                </svg>
+                <span>Evaluaciones Asignadas</span>
             </h2>
             <span class="text-xs text-slate-400 font-semibold">Completa todas las pruebas requeridas</span>
         </div>
@@ -60,12 +64,18 @@
                             
                             <!-- Status Badge -->
                             @if($status === 'COMPLETED')
-                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
-                                    ✓ Completado
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                                    <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    <span>Completado</span>
                                 </span>
                             @elseif($status === 'IN_PROGRESS')
-                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200">
-                                    ⏱ En Curso
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                                    <svg class="w-3.5 h-3.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    <span>En Curso</span>
                                 </span>
                             @else
                                 <span class="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-500 border border-slate-200">
@@ -78,11 +88,17 @@
                         <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed font-medium">{{ $evaluation->description }}</p>
 
                         <div class="flex items-center gap-4 text-xs text-slate-500 font-semibold pt-1">
-                            <span class="flex items-center gap-1">
-                                📝 {{ $evaluation->questions_count }} Preguntas
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                <span>{{ $evaluation->questions_count }} Preguntas</span>
                             </span>
-                            <span class="flex items-center gap-1">
-                                ⏱ {{ $evaluation->time_limit_minutes }} Minutos
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>{{ $evaluation->time_limit_minutes }} Minutos</span>
                             </span>
                         </div>
                     </div>

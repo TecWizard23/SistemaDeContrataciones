@@ -32,11 +32,21 @@
                 </p>
             </div>
 
-            <!-- Fit Badge -->
-            <div class="flex flex-col items-center justify-center p-5 rounded-2xl bg-slate-50 border border-slate-200 min-w-[160px] shadow-2xs">
-                <span class="text-xs text-slate-500 font-bold uppercase tracking-wider">Adecuación (Fit)</span>
-                <span class="text-3xl font-black text-[#059669] mt-1">{{ number_format($session->fit_percentage, 1) }}%</span>
-                <span class="text-[10px] text-slate-400 font-medium mt-0.5">Puntaje Bruto: {{ $session->raw_score }}</span>
+            <div class="flex flex-col sm:flex-row items-center gap-3">
+                <a href="{{ route('candidate.session.pdf', $session) }}" target="_blank"
+                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-[#00a8cc] hover:bg-[#007b99] text-white text-xs font-bold rounded-xl transition-all shadow-sm hover:shadow-md cursor-pointer">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <span>Descargar PDF</span>
+                </a>
+
+                <!-- Fit Badge -->
+                <div class="flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-50 border border-slate-200 min-w-[140px] shadow-2xs">
+                    <span class="text-xs text-slate-500 font-bold uppercase tracking-wider">Adecuación (Fit)</span>
+                    <span class="text-3xl font-black text-[#059669] mt-0.5">{{ number_format($session->fit_percentage, 1) }}%</span>
+                    <span class="text-[10px] text-slate-400 font-medium">Puntaje: {{ $session->raw_score }}</span>
+                </div>
             </div>
         </div>
     </div>
@@ -65,8 +75,10 @@
     @elseif($type === 'DISC' || $type === 'SITUATIONAL')
         <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs space-y-6">
             <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
-                <span class="text-xl">📊</span>
-                Perfil Conductual DISC Calculado
+                <svg class="w-5 h-5 text-[#00a8cc]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+                <span>Perfil Conductual DISC Calculado</span>
             </h2>
 
             <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-relaxed font-medium">
@@ -108,7 +120,10 @@
     <div class="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
         <div class="bg-[#2563eb] text-white px-6 py-4 flex items-center justify-between">
             <h3 class="text-xs font-bold tracking-wide flex items-center gap-2">
-                <span>📝</span> Desglose Respuesta por Respuesta
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                <span>Desglose Respuesta por Respuesta</span>
             </h3>
             <span class="text-[11px] font-semibold opacity-90">Total: {{ count($session->answers) }} ítem(s)</span>
         </div>

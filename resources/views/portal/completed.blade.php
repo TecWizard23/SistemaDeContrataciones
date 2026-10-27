@@ -9,8 +9,10 @@
         <!-- Top Mint Accent Strip -->
         <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-400 via-emerald-500 to-teal-600"></div>
 
-        <div class="w-20 h-20 rounded-3xl bg-emerald-50 text-[#059669] border border-emerald-200 flex items-center justify-center mx-auto shadow-md shadow-emerald-500/10 text-3xl font-extrabold">
-            ✓
+        <div class="w-20 h-20 rounded-3xl bg-emerald-50 text-[#059669] border border-emerald-200 flex items-center justify-center mx-auto shadow-md shadow-emerald-500/10">
+            <svg class="w-10 h-10 text-[#059669]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
         </div>
 
         <div class="space-y-2">

@@ -41,7 +41,9 @@
                 <template x-for="cat in categories" :key="cat">
                     <button @click="selectedCategory = cat; open = false;" class="w-full text-left px-4 py-2 hover:bg-slate-50 text-slate-700 flex items-center justify-between">
                         <span x-text="cat"></span>
-                        <span x-show="selectedCategory === cat" class="text-kenjo-600 font-bold">✓</span>
+                        <svg x-show="selectedCategory === cat" class="w-4 h-4 text-kenjo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                        </svg>
                     </button>
                 </template>
             </div>
@@ -60,7 +62,9 @@
                 <template x-for="rev in reviewers" :key="rev">
                     <button @click="selectedReviewer = rev; open = false;" class="w-full text-left px-4 py-2 hover:bg-slate-50 text-slate-700 flex items-center justify-between">
                         <span x-text="rev"></span>
-                        <span x-show="selectedReviewer === rev" class="text-kenjo-600 font-bold">✓</span>
+                        <svg x-show="selectedReviewer === rev" class="w-4 h-4 text-kenjo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                        </svg>
                     </button>
                 </template>
             </div>
@@ -81,7 +85,9 @@
                 <template x-for="range in dateRanges" :key="range">
                     <button @click="selectedDateRange = range; open = false;" class="w-full text-left px-4 py-2 hover:bg-slate-50 text-slate-700 flex items-center justify-between">
                         <span x-text="range"></span>
-                        <span x-show="selectedDateRange === range" class="text-kenjo-600 font-bold">✓</span>
+                        <svg x-show="selectedDateRange === range" class="w-4 h-4 text-kenjo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                        </svg>
                     </button>
                 </template>
             </div>
@@ -116,7 +122,9 @@
                                     <div class="text-[10px] text-slate-400" x-text="cand.position"></div>
                                 </div>
                             </div>
-                            <span x-show="isSelectedCandidate(cand.id)" class="text-kenjo-600 font-bold text-sm">✓</span>
+                            <svg x-show="isSelectedCandidate(cand.id)" class="w-4 h-4 text-kenjo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                            </svg>
                         </button>
                     </template>
                 </div>
@@ -139,13 +147,17 @@
             <div x-show="open" @click.outside="open = false" x-cloak class="absolute right-0 mt-2 w-56 bg-white border border-slate-200 rounded-xl shadow-xl p-2 z-40 text-xs">
                 <button @click="selectedDepartment = 'All'; open = false; filterByDepartment();" class="w-full text-left px-3 py-1.5 hover:bg-slate-50 font-medium rounded-lg text-slate-700 flex items-center justify-between">
                     <span>Todos los Departamentos</span>
-                    <span x-show="selectedDepartment === 'All'" class="text-kenjo-600 font-bold">✓</span>
+                    <svg x-show="selectedDepartment === 'All'" class="w-4 h-4 text-kenjo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
                 </button>
                 <div class="my-1 border-t border-slate-100"></div>
                 <template x-for="dept in rawData.departments" :key="dept">
                     <button @click="selectedDepartment = dept; open = false; filterByDepartment();" class="w-full text-left px-3 py-1.5 hover:bg-slate-50 rounded-lg text-slate-700 flex items-center justify-between">
                         <span x-text="dept"></span>
-                        <span x-show="selectedDepartment === dept" class="text-kenjo-600 font-bold">✓</span>
+                        <svg x-show="selectedDepartment === dept" class="w-4 h-4 text-kenjo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                        </svg>
                     </button>
                 </template>
             </div>
@@ -163,8 +175,10 @@
                 <span class="w-2 h-2 rounded-full" :style="`background-color: ${cand.color.hex}`"></span>
                 <span x-text="cand.name"></span>
                 <span class="text-[10px] opacity-75 font-normal" x-text="`(${cand.overall_score}%)`"></span>
-                <button @click="removeCandidate(cand.id)" class="ml-1 hover:opacity-100 opacity-60 font-bold transition-opacity" title="Quitar candidato">
-                    ✕
+                <button @click="removeCandidate(cand.id)" class="ml-1 hover:opacity-100 opacity-60 transition-opacity" title="Quitar candidato">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
                 </button>
             </div>
         </template>
@@ -173,7 +187,11 @@
         <template x-if="selectedDepartment !== 'All'">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-300 text-slate-700 text-xs font-semibold">
                 <span>Dep: <span x-text="selectedDepartment"></span></span>
-                <button @click="selectedDepartment = 'All'; filterByDepartment();" class="ml-1 hover:text-slate-900 font-bold">✕</button>
+                <button @click="selectedDepartment = 'All'; filterByDepartment();" class="ml-1 hover:text-slate-900">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
             </div>
         </template>
 

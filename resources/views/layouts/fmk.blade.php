@@ -10,36 +10,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
-                    colors: {
-                        fmk: {
-                            blue: '#00a8cc',        // Institutional Light Blue Navbar
-                            darkBlue: '#007b99',
-                            tableHeader: '#2563eb', // Table Header Blue
-                            cardBlue: '#1d4ed8',    // KPI Card 1
-                            cardGreen: '#059669',   // KPI Card 2 / Emerald
-                            cardMustard: '#f59e0b', // KPI Card 3 / Amber
-                            cardTurquoise: '#06b6d4',// KPI Card 4 / Cyan
-                            heroStart: '#5965db',   // Hero Blue/Indigo Start
-                            heroEnd: '#4539a8',     // Hero Blue/Indigo End
-                            emerald: '#10b981',     // Green Hero Accent
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Compiled Vite Assets (Tailwind CSS v4) -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- QRCode Generator Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 
     <!-- Alpine.js CDN -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -54,10 +32,12 @@
 
     <!-- Header Superior FMK (Navbar Global) -->
     <header class="bg-[#00a8cc] text-white h-16 px-6 flex items-center justify-between shadow-md z-30 flex-shrink-0">
-        <!-- Left Side: Logotipo / Icono de Sol ☀️ & Nombre Institucional -->
+        <!-- Left Side: Logotipo & Nombre Institucional -->
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-xs flex items-center justify-center text-amber-300 text-xl font-bold shadow-inner border border-white/30">
-                ☀️
+            <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-xs flex items-center justify-center text-amber-300 shadow-inner border border-white/30">
+                <svg class="w-6 h-6 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                </svg>
             </div>
             <div>
                 <a href="{{ auth()->check() ? (auth()->user()->isHR() ? route('dashboard.index') : route('portal.index')) : route('login') }}" class="flex items-center gap-2 group">
@@ -121,21 +101,38 @@
                         <span>Inicio / Dashboard</span>
                     </a>
 
+                    <a href="{{ route('vacancies.index') }}" 
+                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all {{ request()->routeIs('vacancies.*') ? 'bg-sky-50 text-[#00a8cc] font-bold border-r-4 border-[#00a8cc] shadow-2xs' : 'text-slate-600 hover:bg-sky-50/70 hover:text-[#00a8cc]' }}">
+                        <svg class="w-4 h-4 text-slate-400 {{ request()->routeIs('vacancies.*') ? 'text-[#00a8cc]' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                        </svg>
+                        <span>Convocatorias & Vacantes</span>
+                    </a>
+
                     <a href="{{ route('candidates.index') }}" 
                        class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all {{ request()->routeIs('candidates.*') ? 'bg-sky-50 text-[#00a8cc] font-bold border-r-4 border-[#00a8cc] shadow-2xs' : 'text-slate-600 hover:bg-sky-50/70 hover:text-[#00a8cc]' }}">
                         <svg class="w-4 h-4 text-slate-400 {{ request()->routeIs('candidates.*') ? 'text-[#00a8cc]' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                         </svg>
-                        <span>Postulantes</span>
+                        <span>Contrataciones & Postulantes</span>
                     </a>
 
-                    <a href="{{ route('evaluations-manage.index') }}" 
-                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all {{ request()->routeIs('evaluations-manage.*') ? 'bg-sky-50 text-[#00a8cc] font-bold border-r-4 border-[#00a8cc] shadow-2xs' : 'text-slate-600 hover:bg-sky-50/70 hover:text-[#00a8cc]' }}">
-                        <svg class="w-4 h-4 text-slate-400 {{ request()->routeIs('evaluations-manage.*') ? 'text-[#00a8cc]' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                        </svg>
-                        <span>Evaluaciones & Exámenes</span>
-                    </a>
+                    <div>
+                        <a href="{{ route('evaluations-manage.index') }}" 
+                           class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all {{ request()->routeIs('evaluations-manage.index') || request()->routeIs('evaluations-manage.show') ? 'bg-sky-50 text-[#00a8cc] font-bold border-r-4 border-[#00a8cc] shadow-2xs' : 'text-slate-600 hover:bg-sky-50/70 hover:text-[#00a8cc]' }}">
+                            <svg class="w-4 h-4 text-slate-400 {{ request()->routeIs('evaluations-manage.*') ? 'text-[#00a8cc]' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                            <span>Banco de Evaluaciones</span>
+                        </a>
+                        <a href="{{ route('evaluations-manage.create') }}" 
+                           class="flex items-center gap-2 pl-9 pr-3 py-1.5 mt-0.5 rounded-lg text-[11px] font-semibold transition-all {{ request()->routeIs('evaluations-manage.create') ? 'bg-sky-100/70 text-[#00a8cc] font-bold' : 'text-slate-500 hover:text-[#00a8cc] hover:bg-slate-50' }}">
+                            <svg class="w-3 h-3 text-[#059669]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                            <span>+ Crear Nuevo Examen</span>
+                        </a>
+                    </div>
 
                     <a href="{{ route('analytics.index') }}" 
                        class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all {{ request()->routeIs('analytics.*') ? 'bg-sky-50 text-[#00a8cc] font-bold border-r-4 border-[#00a8cc] shadow-2xs' : 'text-slate-600 hover:bg-sky-50/70 hover:text-[#00a8cc]' }}">
@@ -158,17 +155,25 @@
                     <a href="{{ route('portal.index') }}" 
                        class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all {{ request()->routeIs('portal.index') ? 'bg-sky-50 text-[#00a8cc] font-bold border-r-4 border-[#00a8cc] shadow-2xs' : 'text-slate-600 hover:bg-sky-50/70 hover:text-[#00a8cc]' }}">
                         <svg class="w-4 h-4 text-slate-400 {{ request()->routeIs('portal.index') ? 'text-[#00a8cc]' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                        </svg>
-                        <span>Mis Postulaciones</span>
-                    </a>
-
-                    <a href="{{ route('portal.index') }}" 
-                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all text-slate-600 hover:bg-sky-50/70 hover:text-[#00a8cc]">
-                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
                         </svg>
-                        <span>Evaluaciones Asignadas</span>
+                        <span>Mis Evaluaciones</span>
+                    </a>
+
+                    <a href="{{ route('portal.profile') }}" 
+                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all {{ request()->routeIs('portal.profile') ? 'bg-sky-50 text-[#00a8cc] font-bold border-r-4 border-[#00a8cc] shadow-2xs' : 'text-slate-600 hover:bg-sky-50/70 hover:text-[#00a8cc]' }}">
+                        <svg class="w-4 h-4 text-slate-400 {{ request()->routeIs('portal.profile') ? 'text-[#00a8cc]' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                        <span>Mi Perfil Profesional</span>
+                    </a>
+
+                    <a href="{{ route('portal.my-results') }}" 
+                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all {{ request()->routeIs('portal.my-results') ? 'bg-sky-50 text-[#00a8cc] font-bold border-r-4 border-[#00a8cc] shadow-2xs' : 'text-slate-600 hover:bg-sky-50/70 hover:text-[#00a8cc]' }}">
+                        <svg class="w-4 h-4 text-slate-400 {{ request()->routeIs('portal.my-results') ? 'text-[#00a8cc]' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                        <span>Mis Resultados</span>
                     </a>
                 @endif
 
@@ -215,6 +220,13 @@
         </main>
 
     </div>
+
+    @auth
+        @if(auth()->user()->isHR())
+            <!-- Global QR Code & Social Media Recruitment Kit Modal -->
+            @include('components.qr-social-kit-modal')
+        @endif
+    @endauth
 
     @stack('scripts')
 </body>
